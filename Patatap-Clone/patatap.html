@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Patatap-Clone</title>
+	<link rel="stylesheet" type="text/css" href="patatap.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.core.min.js"></script>
+	<script type="text/javascript" src="paper/dist/paper-full.js"></script>
+	<script type="text/paperscript" canvas="canvas">
+
+ var sounds = {
+
+"bubbles":new Howl({src:["assets/A/bubbles.mp3"]}),
+"clay":new Howl({src:["assets/A/clay.mp3"]}),
+"moon":new Howl({src:["assets/A/moon.mp3"]}),
+"strike":new Howl({src:["assets/A/strike.mp3"]}),
+"timer":new Howl({src:["assets/A/timer.mp3"]}),
+"ufo":new Howl({src:["assets/A/ufo.mp3"]}),
+"veil":new Howl({src:["assets/A/veil.mp3"]}),
+"wipe":new Howl({src:["assets/A/wipe.mp3"]}),
+"squiggle":new Howl({src:["assets/A/squiggle.mp3"]}),
+
+"pinwheel":new Howl({src:["assets/A/pinwheel.mp3"]}),
+"piston_1":new Howl({src:["assets/A/piston-1.mp3"]}),
+"piston_2":new Howl({src:["assets/A/piston-2.mp3"]}),
+"piston_3":new Howl({src:["assets/A/piston-3.mp3"]}),
+"prism_1":new Howl({src:["assets/A/prism-1.mp3"]}),
+"prism_2":new Howl({src:["assets/A/prism-2.mp3"]}),
+"prism_3":new Howl({src:["assets/A/prism-3.mp3"]}),
+"splits":new Howl({src:["assets/A/splits.mp3"]}),
+"strike":new Howl({src:["assets/A/strike.mp3"]}),
+"suspension":new Howl({src:["assets/A/suspension.mp3"]}),
+"timer":new Howl({src:["assets/A/timer.mp3"]}),
+
+};
+
+	
+	var colors=["red","green","yellow","orange","blue","purple","turquoise"];
+	var sizes=[200,100,400,890,1000,34,234];
+	var circles=[];
+
+	function onKeyDown(event){
+
+	switch(event.key){
+	 case "a": sounds.bubbles.play();
+	 break;
+	 case "s": sounds.clay.play();
+	 break;
+	 case "e": sounds.veil.play();
+	 break;
+	 case "r": sounds.ufo.play();
+	 break;
+	 case "j":sounds.squiggle.play();
+	 break;
+	 case "q": sounds.timer.play();
+	 break;
+	 case "w":sounds.splits.play();
+	 break;
+	 case "y":sounds.piston_1.play();
+	 break;
+	 case "u":sounds.pinwheel.play();
+	 break;
+	 case "i":sounds.piston_2.play();
+	 break;
+	 case "o":sounds.piston_3.play();
+	 break;
+	 case "p":sounds.prism_1.play();
+	 break;
+	 case "f":sounds.prism_2.play();
+	 break;
+}
+
+	var maxPoint= new Point(view.size.width,view.size.height);
+	var randomPoint=Point.random;
+	var point=maxPoint * randomPoint;
+	var c=new Path.Circle(new Point(Math.random()*Math.random()*view.size.width,Math.random()*view.size.height),sizes[Math.floor(Math.random()*sizes.length)]);
+	console.log(Math.floor(Math.random()*5));
+	console.log(view.size.height);
+	c.fillColor=colors[Math.floor(Math.random()*5)];
+	circles.push(c);
+
+
+}
+   
+   function onFrame(event){
+for(var i=0;i<circles.length;i++){
+
+	
+   circles[i].fillColor.hue+=1;
+   circles[i].scale(0.95);
+}
+
+}
+    
+
+
+
+		
+	</script></head>
+    
+<body>
+<canvas id="canvas" resize  style="background:black;width:100%;height:100%"></canvas>
+</body>
+</html>
