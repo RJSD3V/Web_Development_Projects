@@ -1,0 +1,36 @@
+body{
+	background-color:#232323;
+}
+
+.square{
+		width:30%;
+		background:purple;
+		padding-bottom:30%;
+		float:left;
+		margin:1.66%;
+}
+
+h1{
+	color:white;
+	text-align:center;
+}
+.question{
+	color:white;
+}
+span{
+	color:black;
+
+}
+.head{
+	background-color:rgb(25, 88, 186);
+	height:300px;
+	width:100%;
+	padding:100px;
+	
+}
+.toolbar{
+	background-color:white;
+	padding:20px;
+}
+
+
